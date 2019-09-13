@@ -1,0 +1,35 @@
+<h1>New Recipe</h1>
+<form action="/recipes" method="POST">
+    <ul>
+        <li>
+            <label for="recipename">Recipe Name:</label>
+            <input type="text" id="recipe_name" name="name">
+        </li>
+
+        <li>
+            <label for="ingredients">Ingredients:</label>
+            <input type="text" id="recipe_ingredients" name="ingredients">        
+        </li>
+    
+        <li>
+            <label for="cook_time">Approximate Cook-Time:</label>
+            <input type="text" id="recipe_cook_time" name="cook_time">
+        </li>
+   
+        <li>
+            <label for="instructions">Instructions:</label>
+            <input type="text" id="recipe_instructions" name="instructions">
+        </li>
+
+        <li>
+        <label>Add this recipe to a Cook Book:</label>
+            <select name="cook_book_id">
+                <% current_user.cook_books.each do |book|%>
+                    <option value=<%= book.id%>><%= book.name%></option>
+                    <% end %>       
+            </select>
+        </li>
+        <input type="submit" value="Create">
+    </ul>
+
+</form>

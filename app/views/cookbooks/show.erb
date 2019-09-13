@@ -1,0 +1,16 @@
+<h1><%= @book.name %></h1>
+<h3>Created by: <%= @book.user.name %></h3>
+<h3>Recipes:</h3>
+<ol>
+   <% @book.recipes.each do |r| %>
+     <li><a href="/recipes/<%= r.id %>"> <%= r.name%> </a>
+    </li>
+    <% end %>
+    <li>
+        <a href="/recipes/new">Create a New Recipe!</a>
+    </li>
+</ol>
+<form method="post" action="/cookbooks/<%= @book.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="delete">
+</form>

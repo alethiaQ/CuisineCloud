@@ -1,0 +1,16 @@
+<h1>Edit <%= @book.name %> </h1>
+<form action="/cookbooks/<%= @book.id %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <label for="name">Name:</label>
+    <input type="text" name="cookbook[name]" id="name" value="<%= @book.name %>">
+
+    <label for="description">Description:</label>
+    <input type="text" name="cookbook[description]" value="<%= @book.description %>" id="cookbook_description">
+
+   
+
+        <input type="submit" value="Save">
+
+
+</form>

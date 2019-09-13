@@ -18,9 +18,10 @@
       <a href="/">Home</a>
       
       <% if logged_in? %>
-        <a href="/users/#{@user.id}">Dashboard</a>
+        <a href="/users/<%= current_user.id%>">Dashboard</a>
+        <a href="/cookbooks/new">Create a new Cook-Book!</a>
         <a href="/recipes/new">Create a New Recipe!</a>
-        <a href="/recipes/all">Browse Recipes</a>
+        <a href="/recipes">Browse Recipes</a>
         <a href="/logout">Logout</a>
 
       <%else%>

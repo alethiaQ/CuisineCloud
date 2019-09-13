@@ -3,29 +3,31 @@
 <ul>
     <li>Your books: 
         <ol>
-            <% CookBook.all.each do |cb|%>
-                <% if cb.user == @user %>
+            <% current_user.cook_books.each do |cb|%>
+               
                 <li><a href="/cookbooks/<%= cb.id %>"><%= cb.name %></a></li>
                 <% end %>
-                <% end %>
+                
         </ol>
     </li>
     <li>
         <a href="/cookbooks/new">Create a New Cook-Book </a>
     </li>
+    <li><a href="/cookbooks">Browse all Cook-Books</a></li>
+    
     <li>Your Crafted Recipes:
         <ol>
-            <% Recipe.all.each do |r| %>
-                <% if r.user == @user %>
+            <% current_user.recipes.each do |r| %>
+                
                 <li><a href="/recipes/<%= r.id %>"> <%= r.name %></a> </li>
                 <% end %>
-                <% end %>
+                
         </ol>   
     </li>
     <li> <a href="/recipes/new">Create a New Recipe</a>
     </li>
     <li>
-        <a href="/recipes/all">Browse more Recipes</a> 
+        <a href="/recipes">Browse more Recipes</a> 
     </li>
 
 </ul>

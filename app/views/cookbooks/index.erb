@@ -1,0 +1,16 @@
+<h1><center>Cook-Books</center></h1>
+<h3>ALL Cook-books: </h3>
+    <% CookBook.all.each do |book| %>
+       <li> <a href="/cookbooks/<%= book.id %>"> <%= book.name %></a>
+       </li>
+    <% end %>
+
+<h3>Your Books:</h3>
+    <% CookBook.all.each do |book|%>
+       <% if book.user == current_user %> 
+            <li>
+                <a href="/cookbooks/<%= book.id %>"> <%= book.name%> </a>
+            </li>
+        <% end %>
+    <% end %>
+
