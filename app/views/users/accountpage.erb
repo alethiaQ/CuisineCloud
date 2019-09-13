@@ -1,0 +1,31 @@
+<h1>Chef <%= @user.name%> </h1>
+<h3>Dashboard</h3>
+<ul>
+    <li>Your books: 
+        <ol>
+            <% CookBook.all.each do |cb|%>
+                <% if cb.user == @user %>
+                <li><a href="/cookbooks/<%= cb.id %>"><%= cb.name %></a></li>
+                <% end %>
+                <% end %>
+        </ol>
+    </li>
+    <li>
+        <a href="/cookbooks/new">Create a New Cook-Book </a>
+    </li>
+    <li>Your Crafted Recipes:
+        <ol>
+            <% Recipe.all.each do |r| %>
+                <% if r.user == @user %>
+                <li><a href="/recipes/<%= r.id %>"> <%= r.name %></a> </li>
+                <% end %>
+                <% end %>
+        </ol>   
+    </li>
+    <li> <a href="/recipes/new">Create a New Recipe</a>
+    </li>
+    <li>
+        <a href="/recipes/all">Browse more Recipes</a> 
+    </li>
+
+</ul>

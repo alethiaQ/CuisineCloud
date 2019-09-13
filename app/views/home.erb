@@ -1,11 +1,13 @@
 <h1>Welcome to the Cuisine Cloud</h1>
-<h4>Your own virtual cook-book and recipe maker/browser!</h4><br><br>
+<h4>Your own virtual cook-book and recipe creator or browser!</h4><br><br>
 
 <% if logged_in? %>
+    
     <% Recipe.all.each do |r|%>
-    <li><a href="/recipes/<%=#{r.id}%>"><%= r.name %></a></li>
+    <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
+    <% end %>
 
-<%else %>
- <h3>To continue, <a href="/signup">Sign-Up</a> or <a href="/login">Log into your account!</a></h3>
+<% else %>
+    <h3>To continue, <a href="/signup">Sign-Up</a> or <a href="/login">Log into your account!</a></h3>
 
- <%end %>
+ <% end %>

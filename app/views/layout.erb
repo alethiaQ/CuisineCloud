@@ -18,9 +18,9 @@
       <a href="/">Home</a>
       
       <% if logged_in? %>
-        <a href="/cookbooks">View Your Cook-Books</a>
+        <a href="/users/#{@user.id}">Dashboard</a>
         <a href="/recipes/new">Create a New Recipe!</a>
-        <a href="/recipes">Browse Recipes</a>
+        <a href="/recipes/all">Browse Recipes</a>
         <a href="/logout">Logout</a>
 
       <%else%>
