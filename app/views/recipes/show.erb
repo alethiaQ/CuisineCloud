@@ -1,13 +1,28 @@
-<h1 class="display-4"><%= @recipe.name%> </h1>
-<ul>
-    <li><%= @recipe.ingredients %></li>
-    <li><%= @recipe.cook_time %></li>
-    <li><%= @recipe.instructions %></li><br><br>
-  <li><a href="/recipes/<%= @recipe.id %>/edit">Edit Recipe</a></li>
+<div class="jumbotron jumbotron-fluid bg-transparent text-warning">
+  <div class="container">
+    <h1 class="display-4 font-weight-bold"><%= @recipe.name%></h1>
+    <p class="lead">Approx. Cook-Time: <%= @recipe.cook_time %></p>
+  </div>
+</div>
 
+<ul class="list-group">
+    <li class="list-group-item list-group-item-light">Ingredients</li>
+    <li class="list-group-item list-group-item-warning"><%= @recipe.ingredients %></li>
+  </ul><br>
+ <ul class="list-group">
+   <li class="list-group-item list-group-item-light">Instructions</li>
+    <ol>
+      <% @steps.each_with_index do |step, index| %>
+      <li class="list-group-item list-group-item-warning"><%= "#{index+1}. #{step}"%></li>
+      <% end %>
+    </ol>
+</ul>
+  
+  <a href="/recipes/<%= @recipe.id %>/edit" class="btn btn-outline-warning">Edit</a>
 
 <form method="post" action="/recipes/<%= @recipe.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete">
+  <button type="submit" id="submit" class="btn btn-outline-danger">Delete </button>
+ 
 </form>
-</ul>
+

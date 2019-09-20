@@ -2,19 +2,37 @@
 <form action="/recipes/<%= @recipe.id %>" method="POST">
     <input type="hidden" name="_method" value="PATCH">
 
-    <label for="name">Name:</label>
-    <input type="text" name="recipe[name]" id="name" value="<%= @recipe.name %>">
 
-    <label >Ingredients:</label>
-    <input type="text" name="recipe[ingredients]" value="<%= @recipe.ingredients %>" id="recipe_ingredients">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Recipe Name:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Meatballs" aria-label="Username" aria-describedby="basic-addon1"  value="<%= @recipe.name %>" id="recipe[name]" name="recipe[name]">
+    </div>
+  
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Cook-Time:</span>
+        </div>
+        <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" name="recipe[cook_time]" value="<%= @recipe.cook_time %>" id="recipe_cook_time">
+    </div>
 
-    <label >Instructions:</label>
-    <input type="text" name="recipe[instructions]" value="<%= @recipe.instructions %>" id="recipe_instructions">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ingredients:</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea" name="recipe[ingredients]" placeholder="<%= @recipe.ingredients %>" id="recipe_ingredients"></textarea>
+    </div><br>
+        
+     <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Instructions:</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea" placeholder="<%= @recipe.instructions %>" id="recipe_instructions"></textarea>
+    </div><br>
 
-    <label >Cook Time:</label>
-    <input type="text" name="recipe[cook_time]" value="<%= @recipe.cook_time %>" id="recipe_cook_time">
+      <button class="btn btn-outline-warning" id="submit" type="submit">Save</button>
 
-        <input type="submit" value="Save">
 
 
 </form>

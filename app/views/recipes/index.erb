@@ -1,6 +1,17 @@
-<h1>Recipes:</h1>
+<h1 class="display-4"><center>Recipes</center></h1>
 
-<% Recipe.all.each do  |recipe| %>
-<li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+<div class="list-group">
+    <li class="list-group-item list-group-item-primary">All Cook-Books:</li>
 
-<% end %>
+        <% Recipe.all.each do  |recipe| %>
+            <a href="/recipes/<%= recipe.id %>" class="list-group-item list-group-item-action list-group-item-light"><%= recipe.name %></a>
+        <% end %>
+
+    <li class="list-group-item list-group-item-warning">Your Recipes:</li>
+    <% current_user.recipes.each do |r| %>  
+        <a href="/recipes/<%= r.id %>" class="list-group-item list-group-item-action list-group-item-light"><%=r.name%></a>
+           
+        
+    <% end %>
+
+</div>

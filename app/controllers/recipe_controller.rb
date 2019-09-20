@@ -33,6 +33,7 @@ class RecipeController < ApplicationController
   get "/recipes/:id" do
     if logged_in?
       @recipe = Recipe.find_by_id(params[:id])
+      @steps = @recipe.instructions.split(", ")
       erb :'/recipes/show'
     else
       redirect to "/login"

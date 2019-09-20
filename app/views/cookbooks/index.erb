@@ -1,16 +1,19 @@
-<h1><center>Cook-Books</center></h1>
-<h3>ALL Cook-books: </h3>
+<h1 class="display-4"><center>Cook-Books</center></h1>
+<div class="list-group">
+<li class="list-group-item list-group-item-primary">All Cook-Books:</li>
+
+
     <% CookBook.all.each do |book| %>
-       <li> <a href="/cookbooks/<%= book.id %>"> <%= book.name %></a>
-       </li>
+       <a href="/cookbooks/<%= book.id %>" class="list-group-item list-group-item-action list-group-item-light"><%= book.name %></a>
+       
     <% end %>
 
-<h3>Your Books:</h3>
+<li class="list-group-item list-group-item-warning">Your Cook-Books: </li>
     <% CookBook.all.each do |book|%>
        <% if book.user == current_user %> 
-            <li>
-                <a href="/cookbooks/<%= book.id %>"> <%= book.name%> </a>
-            </li>
+            
+        <a href="/cookbooks/<%= book.id %>"class="list-group-item list-group-item-action list-group-item-light"><%=book.name%> </a>
+           
         <% end %>
     <% end %>
-
+</div>

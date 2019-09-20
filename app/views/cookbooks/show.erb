@@ -1,16 +1,21 @@
-<h1><%= @book.name %></h1>
-<h3>Created by: <%= @book.user.name %></h3>
-<h3>Recipes:</h3>
-<ol>
-   <% @book.recipes.each do |r| %>
-     <li><a href="/recipes/<%= r.id %>"> <%= r.name%> </a>
-    </li>
-    <% end %>
-    <li>
-        <a href="/recipes/new">Create a New Recipe!</a>
-    </li>
-</ol>
+<div class="jumbotron jumbotron-fluid bg-transparent text-warning">
+  <div class="container">
+    <h1 class="display-4 font-weight-bold"><%= @book.name %></h1>
+    <p class="lead">Created by: <%= @book.user.name %></p>
+  </div>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-light">Recipes:</li>
+     <% @book.recipes.each do |r| %>
+   <a href="/recipes/<%= r.id %>" class="list-group-item list-group-item-warning"> <%= r.name%> </a>
+   <% end %>
+  </ul><br>
+
+  <a href="/cookbooks/<%= @book.id %>/edit" class="btn btn-outline-warning">Edit</a>
+    
+
 <form method="post" action="/cookbooks/<%= @book.id %>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="delete">
+  <button type="submit" id="submit" class="btn btn-outline-danger">Delete </button>
 </form>
