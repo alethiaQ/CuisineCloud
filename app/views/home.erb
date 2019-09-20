@@ -1,13 +1,24 @@
-<h1>Welcome to the Cuisine Cloud</h1>
-<h4>Your own virtual cook-book and recipe creator or browser!</h4><br><br>
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Cuisine Cloud</h1>
+    <p class="lead">Your own virtual cook-book and recipe creator/browser!</p>
+    <hr class="my-4">
+</div>
 
-<% if logged_in? %>
-    
-    <% Recipe.all.each do |r|%>
-    <li><a href="/recipes/<%= r.id %>"><%= r.name %></a></li>
+
+
+<div class="list-group">
+<% if logged_in? %>  
+<button type="button" class="btn btn-light"> All Recipes </button>
+  <% Recipe.all.each do |r|%>
+
+    <a href="/recipes/<%= r.id %>" class="list-group-item list-group-item-action list-group-item-light"><%= r.name %></a>
     <% end %>
 
 <% else %>
-    <h3>To continue, <a href="/signup">Sign-Up</a> or <a href="/login">Log into your account!</a></h3>
+    <h3>To continue, </h3>
+        <a href="/signup" class="list-group-item list-group-item-action list-group-item-light">Sign-Up</a> 
+        or 
+        <a href="/login" class="list-group-item list-group-item-action list-group-item-light">Log into your account!</a>
 
  <% end %>
+</div>

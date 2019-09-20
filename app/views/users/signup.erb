@@ -1,18 +1,29 @@
-<h1>Sign-up to Start Cooking </h1>
+<h1 class="display-4">Sign-up to Start Cooking </h1>
 <form action="/signup" method="POST">
-     <li>
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name"> 
-    </li>
-    <li>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-    </li>
-    <li>
-        <label for="password">Password:</label>
-        <input type="text" id="password" name="password">
-    </li>
-    <button id="submit" type="submit">All Done!</button>
+     
+     
+     
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Full Name</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Jane Doe" aria-label="Jane Doe" aria-describedby="basic-addon2" id="name" name="name">
+    </div>
+ 
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"id="username" name="username">
+   </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Password</span>
+        </div>
+        <input type="text" class="form-control" placeholder="*****" aria-label="*****" aria-describedby="basic-addon1" id="password" name="password">
+    </div>
+
+    <button class="btn btn-outline-info" id="submit" type="submit">All Done!</button>
 
 
 </form>

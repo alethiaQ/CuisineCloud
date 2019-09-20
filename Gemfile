@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+
+gem 'bootstrap', '~> 4.0.0'
 gem 'sinatra'
 gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -11,6 +13,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+
 
 group :test do
   gem 'rspec'

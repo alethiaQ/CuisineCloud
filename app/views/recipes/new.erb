@@ -1,35 +1,46 @@
-<h1>New Recipe</h1>
+<h1 class="display-4">New Recipe</h1>
 <form action="/recipes" method="POST">
-    <ul>
-        <li>
-            <label for="recipename">Recipe Name:</label>
-            <input type="text" id="recipe_name" name="name">
-        </li>
+  
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Recipe Name:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Meatballs" aria-label="Username" aria-describedby="basic-addon1" id="recipe_name" name="name">
+    </div>
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ingredients:</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea" id="recipe_ingredients" name="ingredients"></textarea>
+    </div><br>
+        
+        
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Cook-Time:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="15 mins" aria-label="Username" aria-describedby="basic-addon1" id="recipe_cook_time" name="cook_time">
+    </div>
+     
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Instructions:</span>
+        </div>
+        <textarea class="form-control" aria-label="With textarea" id="recipe_instructions" name="instructions"></textarea>
+    </div><br>
+       
 
         <li>
-            <label for="ingredients">Ingredients:</label>
-            <input type="text" id="recipe_ingredients" name="ingredients">        
-        </li>
-    
-        <li>
-            <label for="cook_time">Approximate Cook-Time:</label>
-            <input type="text" id="recipe_cook_time" name="cook_time">
-        </li>
-   
-        <li>
-            <label for="instructions">Instructions:</label>
-            <input type="text" id="recipe_instructions" name="instructions">
-        </li>
-
-        <li>
-        <label>Add this recipe to a Cook Book:</label>
+        <div class="badge badge-danger text-wrap" style="width: 6rem;">Add this recipe to:</div>
             <select name="cook_book_id">
                 <% current_user.cook_books.each do |book|%>
                     <option value=<%= book.id%>><%= book.name%></option>
                     <% end %>       
             </select>
         </li>
-        <input type="submit" value="Create">
-    </ul>
+        <button class="btn btn-outline-info" id="submit" type="submit">Create</button>
+
 
 </form>

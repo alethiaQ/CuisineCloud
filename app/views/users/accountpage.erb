@@ -1,33 +1,24 @@
-<h1>Chef <%= @user.name%> </h1>
-<h3>Dashboard</h3>
-<ul>
-    <li>Your books: 
-        <ol>
-            <% current_user.cook_books.each do |cb|%>
-               
-                <li><a href="/cookbooks/<%= cb.id %>"><%= cb.name %></a></li>
-                <% end %>
-                
-        </ol>
-    </li>
-    <li>
-        <a href="/cookbooks/new">Create a New Cook-Book </a>
-    </li>
-    <li><a href="/cookbooks">Browse all Cook-Books</a></li>
+<h1 class="display-3 text-muted"><center>Chef <%= @user.name%></center></h1>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-light">Your Crafted Recipes: </li>  
+  <div class="list-group list-group-horizontal-sm">
+    <% current_user.recipes.each do |r| %>  
     
-    <li>Your Crafted Recipes:
-        <ol>
-            <% current_user.recipes.each do |r| %>
-                
-                <li><a href="/recipes/<%= r.id %>"> <%= r.name %></a> </li>
-                <% end %>
-                
-        </ol>   
-    </li>
-    <li> <a href="/recipes/new">Create a New Recipe</a>
-    </li>
-    <li>
-        <a href="/recipes">Browse more Recipes</a> 
-    </li>
+        <a href="/recipes/<%= r.id %>" class="list-group-item list-group-item-action list-group-item-primary"><%= r.name %></a>
+    <% end %>
+  </div>
 
+<li class="list-group-item list-group-item-light">Your Cook-Books: </li>  
+  <div class="list-group list-group-horizontal-sm">
+    <% current_user.cook_books.each do |cb| %>  
+        <a href="/cookbooks/<%= cb.id %>" class="list-group-item list-group-item-action list-group-item-primary"><%= cb.name %></a>
+    <% end %>
+  </div>
 </ul>
+<br> <br>
+<a class="btn btn-outline-info" href="/recipes/new" role="button"> New Recipe</a>    
+<a class="btn btn-outline-info" href="/cookbooks/new" role="button">New Cook-Book</a>
+     
+<a class="btn btn-outline-warning" href="/cookbooks" role="button">Browse all Cook-Books</a>
+<a class="btn btn-outline-warning" href="/recipes" role="button">Browse all Recipes</a>
+  
