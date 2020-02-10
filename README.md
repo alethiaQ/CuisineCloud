@@ -1,13 +1,15 @@
+CuisineCloud is a simple Content Management System (CMS) that tracks a users cook-books and individual recipes. A MVC framework using Sinatra, CuisineCloud persists data by implementing ActiveRecord CRUD actions.  
+
 Fork and Clone Repo on local device
 
+In terminal: 
+- *bundle install* 
 
-<li>Terminal: *bundle install* </li>
+- *rake db:migrate* 
 
-<li>Terminal: *rake db:migrate* </li>
-
-<li>Terminal: *shotgun* </li>
+- *shotgun* 
 
 
-Use the URL given in terminal (usually localhost:9393 with shotgun)
+Use the URL given in terminal (usually localhost:9393 with shotgun) in your browser
 
 Exit shotgun with control + C
